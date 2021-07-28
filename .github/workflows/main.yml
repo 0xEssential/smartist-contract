@@ -11,7 +11,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 10.15.0
+          node-version: 16
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -31,8 +31,8 @@ jobs:
       - name: Linting Contracts
         run: yarn workspace contract lint
 
-      - name: Formatting
+      - name: Formatting Contracts
         run: yarn workspace contract format
 
-      - name: Running tests
+      - name: Running Contract tests
         run: yarn workspace contract test
