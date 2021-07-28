@@ -20,12 +20,8 @@ export default function Home() {
     console.warn(data.get("asset"));
     const metadata = await storage.store({
       name: data.get("name") as string,
-      description: data.get("description"),
-      image: data.get("asset"),
-      // properties: {
-      //   custom: 'Custom data can appear here, files are auto uploaded.',
-      //   file: new File(['<DATA>'], 'README.md', { type: 'text/plain' }),
-      // }
+      description: data.get("description") as string,
+      image: data.get("asset") as File,
     });
 
     await contract?.artistMint(metadata.ipnft);
