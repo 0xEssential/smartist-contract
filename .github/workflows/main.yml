@@ -34,5 +34,5 @@ jobs:
       - name: Formatting Contracts
         run: yarn workspace contract format
 
-      - name: Running Contract tests
-        run: yarn workspace contract test
+      # - name: Running Contract tests
+      #   run: yarn workspace contract test
