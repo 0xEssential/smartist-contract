@@ -28,11 +28,11 @@ jobs:
       - name: Installing dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Linting
-        run: yarn lint
+      - name: Linting Contracts
+        run: yarn workspace contract lint
 
       - name: Formatting
-        run: yarn format
+        run: yarn workspace contract format
 
       - name: Running tests
-        run: yarn test
+        run: yarn workspace contract test
