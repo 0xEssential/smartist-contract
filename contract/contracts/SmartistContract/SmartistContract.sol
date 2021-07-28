@@ -2,7 +2,6 @@
 
 pragma solidity >=0.8.0;
 
-
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
@@ -19,10 +18,7 @@ contract SmartistContract is ERC721, Ownable, ERC165Storage {
     uint16 public constant ROYALTY_AMOUNT = 10;
     bytes4 private constant _INTERFACE_ID_ERC2981 = 0xc155531d;
 
-    constructor(string memory name, string memory symbol)
-        payable
-        ERC721(name, symbol)
-    {
+    constructor(string memory name, string memory symbol) payable ERC721(name, symbol) {
         _registerInterface(_INTERFACE_ID_ERC2981);
     }
 
@@ -37,11 +33,11 @@ contract SmartistContract is ERC721, Ownable, ERC165Storage {
         royalties[tokenID] = basisPoints;
     }
 
-    function _baseURI() internal override pure returns (string memory) {
+    function _baseURI() internal pure override returns (string memory) {
         return "ipfs://";
     }
 
-    function tokenURI(uint256 tokenId) public override view returns (string memory) {
+    function tokenURI(uint256 tokenId) public view override returns (string memory) {
         require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
 
         string memory baseURI = _baseURI();
@@ -59,12 +55,7 @@ contract SmartistContract is ERC721, Ownable, ERC165Storage {
         return (owner(), _royaltyAmount);
     }
 
-    function supportsInterface(bytes4 interfaceId)
-        public
-        view
-        override(ERC165Storage, ERC721)
-        returns (bool)
-    {
+    function supportsInterface(bytes4 interfaceId) public view override(ERC165Storage, ERC721) returns (bool) {
         return ERC165Storage.supportsInterface(interfaceId);
     }
 
