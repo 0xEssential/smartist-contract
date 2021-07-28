@@ -2,13 +2,11 @@
 
 _Important: this project is in alpha and should not be used in production just yet_
 
-The SmartistContract is a simple spec-compliant ERC721 contract that allows a digital artist to mint work on their own contract instead of using a shared contract on an NFT platform. Many collectors have strong feelings about artist provenance, and we needed such a contract for [Wrasslers](https://wrasslers.com) so we built this at 0xEssential and decided to open source it to give back to the community.
-
-The smart contract includes on-chain royalties per EIP 2981.
+The SmartistContract is a simple spec-compliant ERC721 contract that allows a digital artist to mint work on their own contract instead of using a shared contract on an NFT platform. Many collectors have strong feelings about artist provenance, and we needed such a contract for [Wrasslers](https://wrasslers.com) so we built this at 0xEssential and decided to open source it to give back to the community. The smart contract includes on-chain royalties per EIP 2981.
 
 This repo also includes a small NextJS app that allows an artist to pin metadata and an asset on IPFS and then mint a token against the contract directly to their wallet.
 
-NFTs created via this contract and minting flow are regular old NFTs - you can create an OpenSea collection for the contract, your token owners will be able to freely sell the tokens they own on any platform. But this is a simple contract that's most appropriate for tokenizing digital art - the included contract doesn't put art on chain, do anything generative or any of the boundary-pushing stuff crypto artists are building. It's most appropriate for a digital artist who know has a new market for their work, and is a strong alternative to something like OpenSea lazy minting.
+NFTs created via this contract and minting flow are regular old NFTs - you can create an OpenSea collection for the contract, your token owners will be able to freely sell the tokens they own on any platform. But this is a simple contract that's most appropriate for tokenizing digital art - the included contract doesn't put art on chain, do anything generative or any of the boundary-pushing stuff cutting-edge crypto artists are exploring. It's most appropriate for a digital artist who through NFTs now has a new market for their work, and is a good alternative to something like OpenSea lazy minting.
 
 ## Prerequisites
 
@@ -19,6 +17,10 @@ If you're confident about your command line skills and want to proceed, you will
 **MetaMask**
 
 If you don't already have MetaMask installed then this project is likely not suitable for your needs.
+
+**Github**
+
+Not totally necessary, but using a Github account to utilize this template repo makes your life a bit easier.
 
 **Infura**
 
@@ -34,15 +36,17 @@ This project will automatically verify your contract code on Etherscan after dep
 
 ## Getting started
 
-This Github repo is a "template" repo, which means you can utilize it with a clean git history. Get started by clicking the "Use this template" button up and to the right!
+This Github repo is a "template" repo, which means you can utilize it with a clean git history. Get started by clicking the "Use this template" button up and to the right, which will create a new repository in your account. For security reasons, it's best to keep this repo private such that we don't mistakenly leak your seed phrase or private key.
 
-It's also what's called a "monorepo" that includes multiple projects via yarn workspaces. There is a smart contract project under `contract` while the minting dapp is in the `mint-app` directory. These projects work together to help you deploy your own contract and then mint tokens against it to your own wallet.
+This repo is also what's called a "monorepo" that includes multiple projects via yarn workspaces. There is a smart contract project under `contract` while the minting dapp is in the `mint-app` directory. These projects work together to help you deploy your own contract and then mint tokens against it to your own wallet.
 
-### INSTALL
+Once you've created your own repo off of this template, generally you need to pull the code from your repository to your local machine. Explaining how git works is unfortunately a bit out of scope here, but there are tons of blog posts and help articles, and a dev friend of yours could get this solved with you very quickly. But if you're already intimated, it might be best to wait to use this project until we've made it a bit more accessible to non-engineers.
 
-```bash
-yarn
-```
+## Setup
+
+Here's where we sort of skip over a lot of stuff and assume you are comfortable on the command line and have pulled your repo to your local machine.
+
+The approach we've taken with SmartistContract is to push all of the customization into your environment. Ideally you shouldn't need to edit any code in the repo, but instead set some variables in `.env` and be able to deploy your contract.
 
 ## SCRIPTS
 
